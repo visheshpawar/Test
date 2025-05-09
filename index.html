@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Product Grid</title>
+  <title>Responsive Product Cards</title>
   <style>
     * {
       box-sizing: border-box;
@@ -25,10 +25,10 @@
     }
 
     .card-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
+      justify-content: center;
     }
 
     .card {
@@ -36,12 +36,12 @@
       border-radius: 10px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      width: 300px;
       display: flex;
       flex-direction: column;
       transition: transform 0.3s, box-shadow 0.3s;
       opacity: 0;
       transform: translateY(40px);
+      width: 100%;
     }
 
     .card.show {
@@ -87,10 +87,10 @@
       background: #0056b3;
     }
 
-    @media (max-width: 768px) {
-      .card-grid {
-        flex-direction: column;
-        align-items: center;
+    @media (max-width: 500px) {
+      .card {
+        width: 90%;
+        margin: 0 auto;
       }
     }
   </style>
